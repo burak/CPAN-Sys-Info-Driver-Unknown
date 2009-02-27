@@ -1,0 +1,15 @@
+lib/Sys/Info/Driver/Unknown/Device.pm
+lib/Sys/Info/Driver/Unknown/OS.pm
+lib/Sys/Info/Driver/Unknown/Device/CPU.pm
+lib/Sys/Info/Driver/Unknown/Device/CPU/Env.pm
+lib/Sys/Info/Driver/Unknown.pm
+t/01-pod.t
+t/02-pod-coverage.t
+t/03-basic.t
+Makefile.PL
+Build.PL
+Changes
+MANIFEST
+README
+PREREQ
+META.yml
