@@ -3,7 +3,7 @@ use strict;
 use vars qw($VERSION);
 use base qw(Sys::Info::Driver::Unknown::Device::CPU::Env);
 
-$VERSION = '0.60';
+$VERSION = '0.69_01';
 
 BEGIN {
     local $SIG{__DIE__};
@@ -88,7 +88,7 @@ Burak Gürsoy, E<lt>burakE<64>cpan.orgE<gt>
 
 =head1 COPYRIGHT
 
-Copyright 2006-2008 Burak Gürsoy. All rights reserved.
+Copyright 2006-2009 Burak Gürsoy. All rights reserved.
 
 =head1 LICENSE
 

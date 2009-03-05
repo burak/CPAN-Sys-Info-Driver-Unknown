@@ -1,7 +1,7 @@
 Sys::Info::Driver::Unknown
 ==========================
 
-Fetch information about the host system.
+Compatibility layer for Sys::Info.
 
 Read the module's POD for documentation.
 See the tests for examples.
@@ -24,7 +24,7 @@ or under Windows:
 
 COPYRIGHT
 
-Copyright (c) 2006-2009 Burak Gürsoy. All rights reserved.
+Copyright (c) 2009 Burak Gürsoy. All rights reserved.
 
 LICENSE
 

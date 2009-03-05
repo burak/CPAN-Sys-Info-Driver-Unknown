@@ -10,7 +10,7 @@ __END__
 
 =head1 NAME
 
-Sys::Info::Driver::Unknown - Compatibility driver for Sys::Info
+Sys::Info::Driver::Unknown - Compatibility layer for Sys::Info
 
 =head1 SYNOPSIS
 

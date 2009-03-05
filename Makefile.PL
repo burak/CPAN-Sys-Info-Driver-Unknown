@@ -10,7 +10,7 @@ WriteMakefile(
    'PREREQ_PM'    => \%PREREQ,
    ($] >= 5.005 ? (
    AUTHOR   => 'Burak Gursoy <burak@cpan.org>',
-   ABSTRACT => 'Compatibility driver for Sys::Info',
+   ABSTRACT => 'Compatibility layer for Sys::Info',
    ) : ()),
    PL_FILES => {},
 );
