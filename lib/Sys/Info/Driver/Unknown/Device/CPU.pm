@@ -1,53 +1,42 @@
 package Sys::Info::Driver::Unknown::Device::CPU;
 use strict;
-use vars qw($VERSION);
+use vars qw($VERSION $UP);
 use base qw(Sys::Info::Driver::Unknown::Device::CPU::Env);
 
 $VERSION = '0.69_01';
 
 BEGIN {
     local $SIG{__DIE__};
+    local $@;
     eval {
         require Unix::Processors;
         Unix::Processors->import;
-        1;
     };
-    my $UP = $@ ? 0 : 1;
-    *_UPOK = sub {$UP};
+    $UP = Unix::Processors->new if ! $@;
 }
 
 sub load {0}
 
 sub identify {
     my $self = shift;
-    return $self->_serve_from_cache(wantarray) if $self->{CACHE};
-
-    my @cpu;
-    if ( _UPOK ) {
-        my $up = Unix::Processors->new;
-        foreach my $proc ( @{ $up->processors } ) {
-            push @cpu, {
-                processor_id                 => $proc->id, # cpu id 0,1,2,3...
-                data_width                   => undef,
-                address_width                => undef,
-                bus_speed                    => undef,
-                speed                        => $proc->clock,
-                name                         => $proc->type,
-                family                       => undef,
-                manufacturer                 => undef,
-                model                        => undef,
-                stepping                     => undef,
-                number_of_cores              => $up->max_physical,
-                number_of_logical_processors => $up->max_online,
-                L1_cache                     => undef,
-                flags                        => undef,
-            };
-        }
-    } else {
-        @cpu = $self->SUPER::identify(@_);
-    }
-
-    $self->{CACHE} = [ @cpu ];
+    $self->{META_DATA} ||= [
+        !$UP ? $self->SUPER::identify(@_) : map {{
+            processor_id                 => $_->id, # cpu id 0,1,2,3...
+            data_width                   => undef,
+            address_width                => undef,
+            bus_speed                    => undef,
+            speed                        => $_->clock,
+            name                         => $_->type,
+            family                       => undef,
+            manufacturer                 => undef,
+            model                        => undef,
+            stepping                     => undef,
+            number_of_cores              => $UP->max_physical,
+            number_of_logical_processors => $UP->max_online,
+            L1_cache                     => undef,
+            flags                        => undef,
+        }} @{ $UP->processors }
+    ];
     return $self->_serve_from_cache(wantarray);
 }
 

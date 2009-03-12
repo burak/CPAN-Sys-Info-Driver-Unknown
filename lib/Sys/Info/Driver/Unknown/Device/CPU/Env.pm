@@ -8,46 +8,48 @@ my(%INTEL, %AMD, %OTHER_ID, %OTHER, %CPU, $INSTALLED);
 
 sub identify {
     my $self = shift;
-    return $self->_serve_from_cache(wantarray) if $self->{CACHE};
-    $self->_INSTALL() if not $INSTALLED;
 
-    if ( not $CPU{id} ) {
-        $self->{CACHE} = []; # fake
-        return;
-    }
+    if ( ! $self->{META_DATA} ) {
+        $self->_INSTALL() if not $INSTALLED;
 
-    my($cpu, $count, @cpu);
-    if ($CPU{id} =~ /(.+?), (?:Genuine(Intel)|Authentic(AMD))/) {
-        my $cid  = $1;
-        my $corp = $2 || $3;
-        if ( my %info = $self->_parse( $cid ) ) {
-            if ( my $mn = $self->_corp( $corp, $info{Family} ) ) {
-                if ( my $name = $mn->{ $info{Model} } ) {
-                    $count = ($CPU{number} && $CPU{number} > 1) ? $CPU{number} : '';
-                    $cpu   = "$corp $name";
+        if ( not $CPU{id} ) {
+            $self->{META_DATA} = []; # fake
+            return;
+        }
+
+        my($cpu, $count, @cpu);
+        if ($CPU{id} =~ /(.+?), (?:Genuine(Intel)|Authentic(AMD))/) {
+            my $cid  = $1;
+            my $corp = $2 || $3;
+            if ( my %info = $self->_parse( $cid ) ) {
+                if ( my $mn = $self->_corp( $corp, $info{Family} ) ) {
+                    if ( my $name = $mn->{ $info{Model} } ) {
+                        $count = ($CPU{number} && $CPU{number} > 1) ? $CPU{number} : '';
+                        $cpu   = "$corp $name";
+                    }
                 }
             }
         }
-    }
 
-    foreach my $other (keys %OTHER_ID) {
-        if ($CPU{id} =~ /\Q$other/) {
-            $cpu = $OTHER_ID{$other};
+        foreach my $other (keys %OTHER_ID) {
+            if ($CPU{id} =~ /\Q$other/) {
+                $cpu = $OTHER_ID{$other};
+            }
         }
-    }
 
-    $count = 1 if not $count;
-    for ( 1..$count ) {
-        push @cpu, {
-            architecture  => ($CPU{id} =~ m{ \A (.+?) \s? Family }xmsi),
-            data_width    => undef,
-            speed         => undef,
-            bus_speed     => undef,
-            address_width => undef,
-            name          => $cpu,
-        };
+        $count = 1 if not $count;
+        for ( 1..$count ) {
+            push @cpu, {
+                architecture  => ($CPU{id} =~ m{ \A (.+?) \s? Family }xmsi),
+                data_width    => undef,
+                speed         => undef,
+                bus_speed     => undef,
+                address_width => undef,
+                name          => $cpu,
+            };
+        }
+        $self->{META_DATA} = [@cpu];
     }
-    $self->{CACHE} = [@cpu];
 
     return $self->_serve_from_cache(wantarray);
 }
