@@ -80,6 +80,8 @@ sub login_name {
     return $name;
 }
 
+sub bitness {}
+
 1;
 
 __END__
@@ -127,6 +129,8 @@ Please see L<Sys::Info::OS> for definitions of these methods and more.
 =head2 uptime
 
 =head2 version
+
+=head2 bitness
 
 =head1 SEE ALSO
 
