@@ -4,7 +4,7 @@ use vars qw( $VERSION );
 use POSIX ();
 use Sys::Info::Constants qw( :unknown );
 
-$VERSION = '0.69_01';
+$VERSION = '0.69_07';
 
 # So, we don't support $^O yet, but we can try to emulate some features
 
@@ -50,7 +50,12 @@ sub tz {
     return exists $ENV{TZ} ? $ENV{TZ} : undef;
 }
 
-sub fs { +() }
+sub fs {
+    my $self = shift;
+    return(
+        unknown => 1,
+    );
+}
 
 sub name {
     my $self  = shift;
