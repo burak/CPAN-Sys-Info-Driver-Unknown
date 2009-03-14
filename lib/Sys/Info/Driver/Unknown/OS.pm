@@ -47,7 +47,12 @@ sub meta {
 
 sub tz {
     my $self = shift;
-    return exists $ENV{TZ} ? $ENV{TZ} : undef;
+    return exists $ENV{TZ}
+         ? $ENV{TZ}
+         : do {
+               require POSIX;
+               strftime("%Z", localtime);
+           };
 }
 
 sub fs {

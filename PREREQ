@@ -12,6 +12,8 @@ use vars qw(%PREREQ %RECOMMEND %BUILD_REQ);
    'Sys::Info::Base' => '0.69_05',
 );
 
-1;
+%RECOMMEND = (
+    'Unix::Processors' => 0,
+);
 
-__END__
+1;
