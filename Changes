@@ -2,6 +2,9 @@ Revision history for Perl extension Sys::Info::Driver::Unknown.
 
 Time zone is GMT+2.
 
+0.69_08 Mon Mar 16 04:57:01 2009
+    => Fix os->tz.
+
 0.69_07 Sat Mar 14 07:58:09 2009
     => Return a key from os->fs.
     => Implement os->tz via POSIX.
