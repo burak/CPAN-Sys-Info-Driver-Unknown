@@ -3,7 +3,7 @@ use strict;
 use vars qw($VERSION $UP);
 use base qw(Sys::Info::Driver::Unknown::Device::CPU::Env);
 
-$VERSION = '0.69_01';
+$VERSION = '0.69_10';
 
 BEGIN {
     local $SIG{__DIE__};
@@ -82,7 +82,7 @@ Copyright 2006-2009 Burak Gürsoy. All rights reserved.
 =head1 LICENSE
 
 This library is free software; you can redistribute it and/or modify 
-it under the same terms as Perl itself, either Perl version 5.8.8 or, 
+it under the same terms as Perl itself, either Perl version 5.10.0 or, 
 at your option, any later version of Perl 5 you may have available.
 
 =cut
