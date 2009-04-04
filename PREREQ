@@ -9,7 +9,7 @@ use vars qw(%PREREQ %RECOMMEND %BUILD_REQ);
 
 %PREREQ = (
    'IO::File'        => 0,
-   'Sys::Info::Base' => '0.69_10',
+   'Sys::Info::Base' => '0.69_11',
 );
 
 %RECOMMEND = (

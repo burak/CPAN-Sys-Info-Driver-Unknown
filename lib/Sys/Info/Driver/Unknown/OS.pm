@@ -90,7 +90,9 @@ sub login_name {
     return $name;
 }
 
-sub bitness {}
+sub bitness {
+    my $self = shift;
+}
 
 1;
 

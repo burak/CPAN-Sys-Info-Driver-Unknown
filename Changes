@@ -2,6 +2,9 @@ Revision history for Perl extension Sys::Info::Driver::Unknown.
 
 Time zone is GMT+2.
 
+0.69_11 Sat Apr  4 07:17:27 2009
+    => Add cpu->bitness.
+
 0.69_10 Fri Apr  3 22:38:12 2009
     => Update test suite.
 
