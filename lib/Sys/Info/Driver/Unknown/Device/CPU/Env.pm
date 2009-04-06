@@ -2,7 +2,7 @@ package Sys::Info::Driver::Unknown::Device::CPU::Env;
 use strict;
 use vars qw( $VERSION );
 
-$VERSION = '0.69_10';
+$VERSION = '0.70';
 
 my(%INTEL, %AMD, %OTHER_ID, %OTHER, %CPU, $INSTALLED);
 
