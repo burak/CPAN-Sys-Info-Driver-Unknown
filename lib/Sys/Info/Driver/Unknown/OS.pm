@@ -4,7 +4,7 @@ use vars qw( $VERSION );
 use POSIX ();
 use Sys::Info::Constants qw( :unknown );
 
-$VERSION = '0.70';
+$VERSION = '0.71';
 
 # So, we don't support $^O yet, but we can try to emulate some features
 
@@ -92,6 +92,7 @@ sub login_name {
 
 sub bitness {
     my $self = shift;
+    return;
 }
 
 1;
