@@ -1,0 +1,12 @@
+{
+    module_name    => 'Sys::Info::Driver::Unknown',
+    requires       => {
+        'Sys::Info::Base' => '0.72',
+    },
+    build_requires => {
+        'Test::Sys::Info' => '0.15',
+    },
+    recommends     => {
+        'Unix::Processors' => 0,
+    },
+}
