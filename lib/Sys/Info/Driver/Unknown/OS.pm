@@ -65,24 +65,21 @@ sub fs {
 sub name {
     my $self  = shift;
     my %opt   = @_ % 2 ? () : (@_);
-    my @uname = POSIX::uname();
-    my $rv    = $opt{long} ? join(' ', @uname[UN_OS_SYSNAME, UN_OS_RELEASE])
-              :              $uname[UN_OS_SYSNAME]
+    my $uname = $self->uname;
+    my $rv    = $opt{long} ? join(' ', $uname->{sysname}, $uname->{release})
+              :              $uname->{sysname}
               ;
     return $rv;
 }
 
-sub version { (POSIX::uname)[UN_OS_RELEASE] }
+sub version { shift->uname->{release} }
 
 sub build {
-    my $build = (POSIX::uname)[UN_OS_VERSION] || return;
-    if ( $build =~ UN_RE_BUILD ) {
-        return $1;
-    }
-    return $build;
+    my $build = shift->uname->{version} || return;
+    return $build =~ UN_RE_BUILD ? $1 : $build;
 }
 
-sub node_name { (POSIX::uname)[UN_OS_NODENAME] }
+sub node_name { shift->uname->{nodename} }
 
 sub login_name {
     my $name;

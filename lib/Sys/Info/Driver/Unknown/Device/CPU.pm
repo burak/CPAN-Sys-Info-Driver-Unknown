@@ -15,7 +15,7 @@ BEGIN {
     $UP = Unix::Processors->new if ! $@;
 }
 
-sub load {0}
+sub load { 0 }
 
 sub bitness {}
 
@@ -52,7 +52,7 @@ Sys::Info::Driver::Unknown::Device::CPU - Compatibility layer for unsupported pl
 
 =head1 SYNOPSIS
 
--
+See L<Sys::Info::Device::CPU>.
 
 =head1 DESCRIPTION
 
