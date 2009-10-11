@@ -1,5 +1,6 @@
 package Sys::Info::Driver::Unknown::OS;
 use strict;
+use warnings;
 use vars qw( $VERSION );
 use POSIX ();
 use Sys::Info::Constants qw( :unknown );
@@ -51,7 +52,7 @@ sub tz {
          ? $ENV{TZ}
          : do {
                require POSIX;
-               POSIX::strftime("%Z", localtime);
+               POSIX::strftime('%Z', localtime);
            };
 }
 
@@ -63,27 +64,30 @@ sub fs {
 }
 
 sub name {
-    my $self  = shift;
-    my %opt   = @_ % 2 ? () : (@_);
+    my($self, @args) = @_;
+    my %opt   = @args % 2 ? () : @args;
     my $uname = $self->uname;
-    my $rv    = $opt{long} ? join(' ', $uname->{sysname}, $uname->{release})
+    my $rv    = $opt{long} ? join(q{ }, $uname->{sysname}, $uname->{release})
               :              $uname->{sysname}
               ;
     return $rv;
 }
 
-sub version { shift->uname->{release} }
+sub version { return shift->uname->{release} }
 
 sub build {
     my $build = shift->uname->{version} || return;
-    return $build =~ UN_RE_BUILD ? $1 : $build;
+    if ( $build =~ UN_RE_BUILD ) {
+        return $1;
+    }
+    return $build;
 }
 
-sub node_name { shift->uname->{nodename} }
+sub node_name { return shift->uname->{nodename} }
 
 sub login_name {
     my $name;
-    eval { $name = getlogin() };
+    my $eok = eval { $name = getlogin };
     return $name;
 }
 

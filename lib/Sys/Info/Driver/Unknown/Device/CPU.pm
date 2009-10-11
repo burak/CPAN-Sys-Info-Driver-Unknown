@@ -1,5 +1,6 @@
 package Sys::Info::Driver::Unknown::Device::CPU;
 use strict;
+use warnings;
 use vars qw($VERSION $UP);
 use base qw(Sys::Info::Driver::Unknown::Device::CPU::Env);
 
@@ -8,15 +9,14 @@ $VERSION = '0.70';
 BEGIN {
     local $SIG{__DIE__};
     local $@;
-    eval {
+    my $eok = eval {
         require Unix::Processors;
         Unix::Processors->import;
     };
     $UP = Unix::Processors->new if ! $@;
 }
 
-sub load { 0 }
-
+sub load    {}
 sub bitness {}
 
 sub identify {
