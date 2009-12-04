@@ -2,6 +2,7 @@ package Sys::Info::Driver::Unknown::Device::CPU::Env;
 use strict;
 use warnings;
 use vars qw( $VERSION );
+use constant RE_VENDOR => qr/(.+?), \s (?:Genuine(Intel)|Authentic(AMD))/xms;
 
 $VERSION = '0.70';
 
@@ -11,15 +12,15 @@ sub identify {
     my $self = shift;
 
     if ( ! $self->{META_DATA} ) {
-        $self->_INSTALL() if not $INSTALLED;
+        $self->_INSTALL() if ! $INSTALLED;
 
-        if ( not $CPU{id} ) {
+        if ( ! $CPU{id} ) {
             $self->{META_DATA} = []; # fake
             return;
         }
 
         my($cpu, $count, @cpu);
-        if ($CPU{id} =~ /(.+?), \s (?:Genuine(Intel)|Authentic(AMD))/xms ) {
+        if ($CPU{id} =~ RE_VENDOR ) {
             my $cid  = $1;
             my $corp = $2 || $3;
             if ( my %info = $self->_parse( $cid ) ) {
@@ -38,7 +39,7 @@ sub identify {
             }
         }
 
-        $count = 1 if not $count;
+        $count = 1 if !$count;
         for ( 1..$count ) {
             push @cpu, {
                 architecture  => ($CPU{id} =~ m{ \A (.+?) \s? Family }xmsi),
@@ -304,19 +305,5 @@ See load in L<Sys::Info::Device::CPU>.
 L<Sys::Info>,
 L<http://www.sandpile.org/>,
 L<http://www.paradicesoftware.com/specs/cpuid/index.htm>.
-
-=head1 AUTHOR
-
-Burak Gürsoy, E<lt>burakE<64>cpan.orgE<gt>
-
-=head1 COPYRIGHT
-
-Copyright 2006-2009 Burak Gürsoy. All rights reserved.
-
-=head1 LICENSE
-
-This library is free software; you can redistribute it and/or modify 
-it under the same terms as Perl itself, either Perl version 5.10.0 or, 
-at your option, any later version of Perl 5 you may have available.
 
 =cut
