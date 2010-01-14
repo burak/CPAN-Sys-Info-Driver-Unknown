@@ -2,7 +2,7 @@ Revision history for Perl extension Sys::Info::Driver::Unknown.
 
 Time zone is GMT+2.
 
-0.73 Fri Dec  4 04:25:35 2009
+0.73 Thu Jan 14 03:17:01 2010
     => Support new uname().
 
 0.72 Thu Apr 23 16:59:18 2009
