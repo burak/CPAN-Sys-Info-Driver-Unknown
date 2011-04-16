@@ -1,6 +1,7 @@
 Revision history for Perl extension Sys::Info::Driver::Unknown.
 
-Time zone is GMT+2.
+0.78 Sat Apr 16 15:47:31 2011
+    => Just increased the version number.
 
 0.73 Thu Jan 14 03:17:01 2010
     => Support new uname().
