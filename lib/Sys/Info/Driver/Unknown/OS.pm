@@ -1,11 +1,10 @@
 package Sys::Info::Driver::Unknown::OS;
+
 use strict;
 use warnings;
-use vars qw( $VERSION );
+
 use POSIX ();
 use Sys::Info::Constants qw( :unknown );
-
-$VERSION = '0.71';
 
 # So, we don't support $^O yet, but we can try to emulate some features
 

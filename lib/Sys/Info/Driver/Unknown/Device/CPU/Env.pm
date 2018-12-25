@@ -1,10 +1,9 @@
 package Sys::Info::Driver::Unknown::Device::CPU::Env;
+
 use strict;
 use warnings;
-use vars qw( $VERSION );
-use constant RE_VENDOR => qr/(.+?), \s (?:Genuine(Intel)|Authentic(AMD))/xms;
 
-$VERSION = '0.70';
+use constant RE_VENDOR => qr/(.+?), \s (?:Genuine(Intel)|Authentic(AMD))/xms;
 
 my(%INTEL, %AMD, %OTHER_ID, %OTHER, %CPU, $INSTALLED);
 

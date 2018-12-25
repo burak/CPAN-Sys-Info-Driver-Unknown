@@ -1,10 +1,9 @@
 package Sys::Info::Driver::Unknown::Device::CPU;
+
 use strict;
 use warnings;
-use vars qw($VERSION $UP);
+use vars qw($UP);
 use base qw(Sys::Info::Driver::Unknown::Device::CPU::Env);
-
-$VERSION = '0.70';
 
 BEGIN {
     local $SIG{__DIE__};

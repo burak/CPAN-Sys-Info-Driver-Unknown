@@ -1,9 +1,7 @@
 package Sys::Info::Driver::Unknown;
+
 use strict;
 use warnings;
-use vars qw( $VERSION );
-
-$VERSION = '0.78';
 
 1;
 

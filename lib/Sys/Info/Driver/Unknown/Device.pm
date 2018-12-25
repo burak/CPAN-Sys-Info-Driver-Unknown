@@ -1,9 +1,7 @@
 package Sys::Info::Driver::Unknown::Device;
+
 use strict;
 use warnings;
-use vars qw( $VERSION );
-
-$VERSION = '0.70';
 
 1;
 
