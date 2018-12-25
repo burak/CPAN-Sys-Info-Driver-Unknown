@@ -22,7 +22,7 @@ sub identify {
     my $self = shift;
     $self->{META_DATA} ||= [
         !$UP ? $self->SUPER::identify(@_) : map {{
-            processor_id                 => $_->id, # cpu id 0,1,2,3...
+            processor_id                 => $_->id, #Â cpu id 0,1,2,3...
             data_width                   => undef,
             address_width                => undef,
             bus_speed                    => undef,

@@ -132,8 +132,8 @@ sub _INTEL {
             '7'     => 'Pentium III (Katmai)',
             '8'     => 'Pentium III (Coppermine)',
             '9'     => 'Mobile Pentium III',
-            '10'    => 'Pentium III (0.18 µm)',
-            '11'    => 'Pentium III (0.13 µm)',
+            '10'    => 'Pentium III (0.18 Âµm)',
+            '11'    => 'Pentium III (0.13 Âµm)',
 
             '13'    => 'Celeron M', # ???
             '15'    => 'Core 2 Duo (Merom)', # ???
@@ -142,10 +142,10 @@ sub _INTEL {
             '0'     => 'Itanium (IA-64)',
     },
     '15' => {
-            '0'     => 'Pentium IV (0.18 µm)',
-            '1'     => 'Pentium IV (0.18 µm)',
-            '2'     => 'Pentium IV (0.13 µm)',
-            '3'     => 'Pentium IV (0.09 µm)',
+            '0'     => 'Pentium IV (0.18 Âµm)',
+            '1'     => 'Pentium IV (0.18 Âµm)',
+            '2'     => 'Pentium IV (0.13 Âµm)',
+            '3'     => 'Pentium IV (0.09 Âµm)',
             # Itanium 2 (IA-64)?
     },
 }
@@ -173,9 +173,9 @@ sub _AMD {
         '13'    => 'K6-2+ or K6-III+',
     },
     '6'  => {
-        '0'     => 'Athlon (25 µm)',
-        '1'     => 'Athlon (25 µm)',
-        '2'     => 'Athlon (18 µm)',
+        '0'     => 'Athlon (25 Âµm)',
+        '1'     => 'Athlon (25 Âµm)',
+        '2'     => 'Athlon (18 Âµm)',
         '3'     => 'Duron',
         '4'     => 'Athlon (Thunderbird)',
         '6'     => 'Athlon (Palamino)',
