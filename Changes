@@ -1,6 +1,8 @@
 Revision history for Perl extension Sys::Info::Driver::Unknown.
 
 {{$NEXT}}
+
+0.79 2018-12-25 BURAK
     - Migrate to dzil.
 
 0.78 Sat Apr 16 15:47:31 2011
