@@ -3,7 +3,7 @@ package Sys::Info::Driver::Unknown::Device::CPU;
 use strict;
 use warnings;
 use vars qw($UP);
-use base qw(Sys::Info::Driver::Unknown::Device::CPU::Env);
+use parent qw(Sys::Info::Driver::Unknown::Device::CPU::Env);
 
 BEGIN {
     local $SIG{__DIE__};
