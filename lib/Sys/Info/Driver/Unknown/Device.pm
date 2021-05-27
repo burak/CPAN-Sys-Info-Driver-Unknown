@@ -13,7 +13,7 @@ Sys::Info::Driver::Unknown::Device - Base class for Unknown device drivers
 
 =head1 SYNOPSIS
 
-    use base qw( Sys::Info::Driver::Unknown::Device );
+    use parent qw( Sys::Info::Driver::Unknown::Device );
 
 =head1 DESCRIPTION
 
